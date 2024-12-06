@@ -1,0 +1,5 @@
+COPIAR ESTOS DATOS DE ABAJO, CREAR UN ARCHIVO .env EN LA CARPETA RAIZ DEL PROYECTO Y PEGARLOS
+
+MONGO_URI=mongodb+srv://admin:admin@clusterproducts.e9dat.mongodb.net/?retryWrites=true&w=majority&appName=ClusterProducts
+
+PORT=3000
