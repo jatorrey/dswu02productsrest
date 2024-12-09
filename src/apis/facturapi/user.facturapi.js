@@ -1,4 +1,4 @@
-const facturapi = require('./connection');
+const facturapi = require('./connection.facturapi');
 
 async function createUser(user) {
     const facturapiUser = {
