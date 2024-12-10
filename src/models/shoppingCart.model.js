@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const UserModel = require('./UserModel');
-const ProductModel = require('./ProductModel');
+const UserModel = require('./user.model');
+const ProductModel = require('./product.model');
 
 const CartModel = new mongoose.Schema({
     facturapiId: {

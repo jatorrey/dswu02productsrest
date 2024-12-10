@@ -1,4 +1,4 @@
-const { User } = require('../models/user.model');
+const User = require('../models/user.model');
 const facturapi = require('../apis/facturapi/user.facturapi');
 
 const getAllUsers = async (req, res) => {
@@ -26,7 +26,7 @@ const createUser = async (req, res) => {
     try {
         const user = new User(req.body);
         const facturapiUser = await facturapi.createUser(user);
-        user.facturapiid = facturapiUser.id;
+        user.facturapiId = facturapiUser.id;
         await user.save();
         res.status(201).json(user);
     } catch (error) {
@@ -37,7 +37,7 @@ const createUser = async (req, res) => {
 const updateUser = async (req, res) => {
     try {
         const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        facturapi.updateUser(user.facturapiid, user);
+        facturapi.updateUser(user.facturapiId, user);
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
@@ -50,7 +50,7 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
     try {
         const user = await User.findByIdAndDelete(req.params.id);
-        facturapi.deleteUser(user.facturapiid);
+        facturapi.deleteUser(user.facturapiId);
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }

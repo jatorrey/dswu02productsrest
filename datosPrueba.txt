@@ -1,36 +1,25 @@
 Insercion de un usuario:
 
 {
-  "_id": "user123",
-  "rfc": "ABC101010111",
-  "name": "Juan Pérez",
-  "email": "juan.perez@example.com",
-  "password": "securepassword",
-  "address": {
-      "street": "Av. Siempre Viva",
-      "exterior": "123",
-      "interior": "A",
-      "neighborhood": "Centro",
-      "city": "Ciudad de México",
-      "municipality": "Cuauhtémoc",
-      "zip": "01000",
-      "state": "CDMX",
-      "country": "México"
-  },
-  "phone": "5512345678",
-  "role": "CLIENT",
-  "paymentMethod": "CARD"
+    "rfc": "ABC101010111",
+    "name": "Juan Pérez",
+    "email": "juan.perez@example.com",
+    "password": "securepassword",
+    "direccion": "Calle 123",
+    "zip": "12345",
+    "tel": 5512345678,
+    "role": "USER",
+    "payMethod": "CREDIT"
 }
 
 Insercion de un producto:
 
 {
-  "_id": "product123",
-  "name": "Smartphone XYZ",
-  "description": "Un smartphone de última generación con pantalla OLED.",
-  "price": 9999.99,
-  "category": "ELECTRONICS",
-  "brand": "TechBrand",
-  "stock": 50
+    "name": "Leche Entera LALA",
+    "description": "Leche entera marca LALA presentacion 1L",
+    "price": 12.99,
+    "category": "Lácteos",
+    "brand": "LALA",
+    "stock": 50
 }
 

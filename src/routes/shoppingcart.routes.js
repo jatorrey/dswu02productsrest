@@ -1,23 +1,30 @@
 const express = require('express');
 const router = express.Router();
-const cartController = require('../controllers/shoppingcart.controller');
+const {
+    createCart,
+    getCartById,
+    getCartsByUserId,
+    addProductToCart,
+    removeProductFromCart,
+    closeCart
+} = require('../controllers/shoppingcart.controller');
 
-//crear un carrito
-router.post('/crear', cartController.createCart);
+// Crear un carrito nuevo y asociarlo a un usuario
+router.post('/crear', createCart);
 
-//obtener carrito por id
-router.get('/:cartId', cartController.getCartById);
+// Obtener un carrito específico por su _id
+router.get('/:id', getCartById);
 
-//obtener todos los carritos de un usuario
-router.get('/user/:userId', cartController.getCartsByUser);
+// Obtener todos los carritos de un usuario por el _id del usuario
+router.get('/user/:userId', getCartsByUserId);
 
-//agregar un producto al carrito
-router.post('/agregar-producto', cartController.addProductToCart);
+// Agregar un producto a un carrito
+router.post('/:cartId/product', addProductToCart);
 
-//eliminar un producto del carrito
-router.post('/eliminar-producto', cartController.removeProductFromCart);
+// Eliminar un producto del carrito
+router.delete('/:cartId/product', removeProductFromCart);
 
-//cerrar un carrito
-router.post('/cerrar/:cartId', cartController.closeCart);
+// Cerrar un carrito
+router.post('/:cartId/close', closeCart);
 
 module.exports = router;

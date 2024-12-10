@@ -7,7 +7,7 @@ async function createUser(user) {
         tax_system: '601',
         email: user.email,
         address: {
-            zip: user.address.zip
+            zip: user.zip
         }
     }
     return await facturapi.customers.create(facturapiUser);
@@ -20,7 +20,7 @@ async function updateUser(facturapiid, user) {
         tax_system: '603',
         email: user.email,
         address: {
-            zip: user.address.zip
+            zip: user.zip
         }
     }
     return await facturapi.customers.update(facturapiid, facturapiUser);

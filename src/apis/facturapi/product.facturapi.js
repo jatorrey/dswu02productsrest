@@ -2,16 +2,16 @@ const facturapi = require('./connection.facturapi');
 
 async function createProduct(product) {
     const categoryToKey = {
-        'Bebidas': '50161802',
-        'Lácteos': '50171701',
+        'Bebidas': '50202300',
+        'Lácteos': '50131700',
         'Carnes': '50111500',
-        'Frutas': '50161501',
-        'Verduras': '50161811',
-        'Panadería': '50181903',
-        'Dulces': '50192101',
-        'Limpieza': '47131800',
-        'Higiene': '53131605',
-        'Enlatados': '50161806'
+        'Frutas': '21102007',
+        'Verduras': '50405706',
+        'Panadería': '50181900',
+        'Dulces': '50181905',
+        'Limpieza': '23153207',
+        'Higiene': '42151909',
+        'Enlatados': '50464803'
     };
 
     const productKey = categoryToKey[product.category];
