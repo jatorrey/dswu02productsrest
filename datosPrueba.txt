@@ -2,7 +2,7 @@ Insercion de un usuario:
 
 {
   "_id": "user123",
-  "rfc": "ABC123456T78",
+  "rfc": "ABC101010111",
   "name": "Juan Pérez",
   "email": "juan.perez@example.com",
   "password": "securepassword",

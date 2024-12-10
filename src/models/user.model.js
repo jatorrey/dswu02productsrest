@@ -1,29 +1,53 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
-    _id: { type: String, required: true },
-    rfc: { type: String, required: true },
-    name: { type: String, required: true },
-    email: { type: String, required: true },
-    password: { type: String, required: true },
-    address: {
-        street: { type: String, default: null },
-        exterior: { type: String, default: null },
-        interior: { type: String, default: null },
-        neighborhood: { type: String, default: null },
-        city: { type: String, default: 'N/A' },
-        municipality: { type: String, default: 'N/A' },
-        zip: { type: String, required: true },
-        state: { type: String, default: 'N/A' },
-        country: { type: String, default: 'N/A' }
+const UserModel = new mongoose.Schema({
+    facturapiId: {
+        type: String
     },
-    phone: { type: String, required: true },
-    createdAt: { type: Date, default: Date.now },
-    role: { type: String, enum: ['ADMIN', 'CLIENT'], default: 'CLIENT' },
-    paymentMethod: { type: String, enum: ['CASH', 'CARD', 'PAYPAL', 'N/A'], default: 'N/A' },
-    facturapiid: { type: String, required: true },
+    rfc: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    direccion: {
+        type: String,
+        required: true
+    },
+    zip: {
+        type: Number,
+        required: true
+    },
+    tel: {
+        type: Number,
+        required: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    role: {
+        type: String,
+        enum: ['ADMIN', 'USER'],
+        default: 'USER'
+    },
+    payMethod: {
+        type: String,
+        enum: ['CREDIT', 'DEBIT', 'PAYPAL', 'CASH'],
+        default: 'CASH'
+    }
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('UsuarioFacturapi', UserModel);
 
-module.exports = { User };
+module.exports = User;

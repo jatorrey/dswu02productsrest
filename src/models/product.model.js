@@ -1,18 +1,45 @@
 const mongoose = require('mongoose');
 
-const productSchema = new mongoose.Schema({
-    _id: { type: String, required: true },
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    price: { type: Number, required: true },
-    category: { type: String, enum: ['ELECTRONICS', 'CLOTHING', 'FOOD', 'TOYS'], required: true },
-    brand: { type: String, required: true },
-    stock: { type: Number, default: 0 },
-    creationDate: { type: Date, default: Date.now },
-    imgs: [String],
-    facturapiid: { type: String, required: true }
+const ProductModel = new mongoose.Schema({
+    facturapiId: {
+        type: String
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    price: {
+        type: Number,
+        required: true,
+        min: 0
+    },
+    category: {
+        type: String,
+        enum: ['Bebidas', 'Lácteos', 'Carnes', 'Frutas', 'Verduras', 'Panadería', 'Dulces', 'Limpieza', 'Higiene', 'Enlatados'],
+        required: true
+    },
+    brand: {
+        type: String,
+        required: true
+    },
+    stock: {
+        type: Number,
+        default: 0
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    images: {
+        required: true,
+        type: Array
+    }
 });
 
-const Producto = mongoose.model('Product', productSchema);
+const Product = mongoose.model('ProductFacturapi', ProductModel);
 
-module.exports = { Producto };
+module.exports = Product;

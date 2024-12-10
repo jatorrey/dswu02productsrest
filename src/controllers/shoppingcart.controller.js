@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const { Cart } = require('../models/shoppingCart.model');
 const { Producto } = require('../models/product.model');
 const { User } = require('../models/user.model');
@@ -12,18 +13,26 @@ exports.createCart = async (req, res) => {
       return res.status(404).json({ error: 'Usuario no encontrado.' });
     }
 
-    // Crear el carrito
+    // Crear el carrito asociado al usuario
     const newCart = new Cart({
       _id: new mongoose.Types.ObjectId().toString(),
-      user: userId,
+      user: userId, // Ahora es String
+      product: [],
+      subtotal: 0,
+      IVA: 0,
+      total: 0,
     });
 
     await newCart.save();
-    res.status(201).json(newCart);
+    res.status(201).json({
+      message: 'Carrito creado exitosamente.',
+      cart: newCart,
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 exports.getCartById = async (req, res) => {
   try {
